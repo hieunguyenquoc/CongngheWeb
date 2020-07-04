@@ -1959,6 +1959,9 @@
     <Content Include="Assets\Client\css\jquery-ui.css" />
     <Content Include="Assets\Client\css\menu.css" />
     <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Client\font\fontawesome-webfont.svg" />
+    <Content Include="Assets\Client\font\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Client\images\1.jpg" />
     <Content Include="Assets\Client\images\2.jpg" />
     <Content Include="Assets\Client\images\3.jpg" />
@@ -2197,6 +2200,34 @@
     <Content Include="Assets\Client\css\bootstrap.css.map" />
     <Content Include="Assets\Client\css\bootstrap.min.css.map" />
     <Content Include="Assets\Client\images\Thumbs.db" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Client\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Client\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Client\font\Amble-Regular-webfont.ttf" />
+    <Content Include="Assets\Client\font\fontawesome-webfont.eot" />
+    <Content Include="Assets\Client\font\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Client\font\fontawesome-webfont.woff" />
+    <Content Include="Assets\Client\font\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Client\font\FontAwesome.otf" />
+    <Content Include="Assets\Client\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Client\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Client\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Client\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\Client\scss\font-awesome.scss" />
+    <Content Include="Assets\Client\scss\_animated.scss" />
+    <Content Include="Assets\Client\scss\_bordered-pulled.scss" />
+    <Content Include="Assets\Client\scss\_core.scss" />
+    <Content Include="Assets\Client\scss\_fixed-width.scss" />
+    <Content Include="Assets\Client\scss\_icons.scss" />
+    <Content Include="Assets\Client\scss\_larger.scss" />
+    <Content Include="Assets\Client\scss\_list.scss" />
+    <Content Include="Assets\Client\scss\_mixins.scss" />
+    <Content Include="Assets\Client\scss\_path.scss" />
+    <Content Include="Assets\Client\scss\_rotated-flipped.scss" />
+    <Content Include="Assets\Client\scss\_stacked.scss" />
+    <Content Include="Assets\Client\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2235,9 +2266,9 @@
     <Content Include="Views\Product\ProductCategory.cshtml" />
     <Content Include="Views\Shared\footer.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Customer\CustomerDetail.cshtml" />
     <Content Include="Views\Product\category.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

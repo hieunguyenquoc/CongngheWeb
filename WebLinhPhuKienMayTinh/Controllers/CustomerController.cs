@@ -108,6 +108,7 @@ namespace WebLinhPhuKienMayTinh.Controllers
         public ActionResult CustomerDetail()
         {
             var customer = new CustomerDao().ListAll();
+            ViewBag.Customer = customer;
             return View(customer);
         }
 

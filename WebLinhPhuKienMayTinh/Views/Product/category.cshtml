@@ -4,6 +4,7 @@
     ViewBag.Title = "category";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (WebLinhPhuKienMayTinh.Models.EF.CATEGORY)ViewBag.Category;
+    
 
 }
 
@@ -29,6 +30,7 @@
                 <div class="button"><span><a href="/chi-tiet/@item.productName-@item.productId" class="details">Chi tiết</a></span></div>
             </div>
         }
+        <div class="clear"></div>
         @if (ViewBag.TotalPage > 1)
         {
             var pageDisplay = (int)ViewBag.MaxPage;
@@ -73,7 +75,7 @@
         }
         else
         {
-            <span>Không còn sản phẩm nào</span>
+            <span>Không còn sản phẩm nào thuộc mặt hàng này</span>
         }
  </div>
     </div>
