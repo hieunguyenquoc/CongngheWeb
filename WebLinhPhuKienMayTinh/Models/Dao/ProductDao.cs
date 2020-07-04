@@ -28,6 +28,12 @@ namespace WebLinhPhuKienMayTinh.Models.Dao
         {
             return db.CATEGORies.ToList();
         }
+        public List<PRODUCT> ListByCategoryID(int catId,ref int totalRecord, int pageIndex = 1, int pageSize = 2)
+        {
+            totalRecord = db.PRODUCTs.Where(x => x.catId == catId).Count();
+            var model = db.PRODUCTs.Where(x => x.catId == catId).OrderByDescending(x => x.catId).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            return model;
+        }
         public int Productdadd(PRODUCT entity)
         {
                 db.PRODUCTs.Add(entity);

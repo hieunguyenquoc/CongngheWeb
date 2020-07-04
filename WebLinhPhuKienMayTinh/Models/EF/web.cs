@@ -163,5 +163,7 @@ namespace WebLinhPhuKienMayTinh.Models.EF
                 .Property(e => e.images)
                 .IsUnicode(false);
         }
+
+        public System.Data.Entity.DbSet<WebLinhPhuKienMayTinh.Models.LoginModel> LoginModels { get; set; }
     }
 }

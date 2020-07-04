@@ -65,7 +65,21 @@
             </table>
 
             <button id="btnContinue"> Tiếp tục mua hàng</button>
-            <button id="btnPayment">Thanh toán</button>
+            <div>
+                @{
+                    var session = (UserLogin)Session[WebLinhPhuKienMayTinh.Common.CommonConstants.USER_SESSION];
+                }
+                @if (session == null)
+                {
+                    <a href="/dang-nhap"><button id="btnPayment">Thanh toán</button></a>
+                }
+                else
+                {
+                    <button id="btnPayment">Thanh toán</button>
+                }
+
+            </div>
+            
             <button id="btnDeleteAll">Xoá giỏ hàng</button>
 
         }

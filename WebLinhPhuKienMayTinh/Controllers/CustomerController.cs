@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebLinhPhuKienMayTinh.Common;
 using WebLinhPhuKienMayTinh.Models;
 using WebLinhPhuKienMayTinh.Models.Dao;
 using WebLinhPhuKienMayTinh.Models.EF;
@@ -16,6 +17,48 @@ namespace WebLinhPhuKienMayTinh.Controllers
         public ActionResult Register()
         {
             return View();
+        }
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new CustomerDao();
+                var result = dao.Login(model.name, (model.password0));
+                if (result == 1)
+                {
+                    var user = dao.GetById(model.name);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.name;
+                    userSession.UserID = user.customer_id;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return Redirect("/");
+                }
+                else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại.");
+                }
+                else if (result == 2)
+                {
+                    ModelState.AddModelError("", "Mật khẩu không đúng.");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "đăng nhập không đúng.");
+                }
+            }
+            return View(model);
+
+        }
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+            return Redirect("/");
         }
         [HttpPost]
         public ActionResult Register(RegiterModel model)
@@ -62,5 +105,11 @@ namespace WebLinhPhuKienMayTinh.Controllers
             }
             return View(model);
         }
+        public ActionResult CustomerDetail()
+        {
+            var customer = new CustomerDao().ListAll();
+            return View(customer);
+        }
+
     }
 }

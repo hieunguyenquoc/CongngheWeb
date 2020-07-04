@@ -337,7 +337,6 @@ E:\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\bin\Newtonsoft.Json.xml
 E:\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\bin\Antlr3.Runtime.pdb
 E:\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.csproj.CopyComplete
-C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.csprojAssemblyReference.cache
 C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.csproj.CoreCompileInputs.cache
 C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.dll
 C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.pdb
@@ -424,3 +423,4 @@ C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\bin\Newtons
 C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\bin\Antlr3.Runtime.pdb
 C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.csproj.CopyComplete
+C:\Users\hieup\Downloads\weblinhphukienmaytinh\WebLinhPhuKienMayTinh\obj\Debug\WebLinhPhuKienMayTinh.csprojAssemblyReference.cache

@@ -74,6 +74,19 @@ namespace WebLinhPhuKienMayTinh
                   namespaces: new[] { "WebLinhPhuKienMayTinh.Controllers" }
               );
             routes.MapRoute(
+                  name: "Đăng nhập ",
+                  url: "dang-nhap",
+                  defaults: new { controller = "Customer", action = "Login", id = UrlParameter.Optional },
+                  namespaces: new[] { "WebLinhPhuKienMayTinh.Controllers" }
+              );
+            
+            routes.MapRoute(
+                  name: "Sản phẩm ",
+                  url: "san-pham/{catName}-{id}",
+                  defaults: new { controller = "Product", action = "category", id = UrlParameter.Optional },
+                  namespaces: new[] { "WebLinhPhuKienMayTinh.Controllers" }
+              );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

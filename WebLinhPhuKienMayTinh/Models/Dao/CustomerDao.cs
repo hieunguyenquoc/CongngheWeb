@@ -24,6 +24,25 @@ namespace WebLinhPhuKienMayTinh.Models.Dao
             db.SaveChanges();
             return id.customer_id;
         }
+        public CUSTOMER GetById(string userName)
+        {
+            return db.CUSTOMERs.SingleOrDefault(x => x.name == userName);
+        }
+        public int Login(string name, string password)
+        {
+            var result = db.CUSTOMERs.SingleOrDefault(x => x.name == name);
+            if(result == null)
+            {
+                return 0;
+            }    
+            else
+            {
+                if (result.password0 == password)
+                    return 1;
+                else
+                    return 2;
+            }    
+        }
         public bool CheckUserName(string userName)
         {
             return db.CUSTOMERs.Count(x => x.name == userName) > 0;
@@ -52,5 +71,10 @@ namespace WebLinhPhuKienMayTinh.Models.Dao
             return db.CUSTOMERs.Find(id);//lay ra id
 
         }
+        public List<CUSTOMER> ListAll()
+        {
+            return db.CUSTOMERs.ToList();
+        }
+        
     }
 }

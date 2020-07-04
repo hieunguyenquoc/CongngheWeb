@@ -1,0 +1,62 @@
+﻿@model WebLinhPhuKienMayTinh.Models.EF.CUSTOMER
+@{
+    ViewBag.Title = "CustomerDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <div class="section group">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Hồ sơ khách hàng</h3>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <table class="tblone">
+            
+            {
+                <tr>
+                    <td>Tên</td>
+                    <td>:</td>
+                    <td>@Model.name</td>
+                </tr>
+                <tr>
+                    <td>Thành phố</td>
+                    <td>:</td>
+                    <td>@Model.city</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>:</td>
+                    <td>@Model.phone</td>
+                </tr>
+
+                <tr>
+                    <td>Mã bưu điện</td>
+                    <td>:</td>
+                    <td>@Model.zipcode</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>@Model.email</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td>:</td>
+                    <td>@Model.address0</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a href="editprofile.php">Sửa hồ sơ</a></td>
+                    <td colspan="4"><a href="changepasswordUser.php">Thay đổi mật khẩu</a></td>
+
+                </tr>
+            }
+
+
+
+        </table>
+    </div>
+</div>
+</div>
+
+

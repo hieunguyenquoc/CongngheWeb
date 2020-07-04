@@ -19,6 +19,7 @@ namespace WebLinhPhuKienMayTinh.Controllers
             ViewBag.NewProduct = productDao.ListNewProduct(4);
             ViewBag.FeatureProduct = productDao.ListFeatureProduct(4);
             return View();
+
         }
         public PartialViewResult HeaderCart()
         {
