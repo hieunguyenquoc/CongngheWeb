@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "EnterProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@model WebLinhPhuKienMayTinh.Models.EF.PRODUCT
+@section header
+{ KHO HÀNG
+}
+@using (Html.BeginForm("EnterProduct", "Product", FormMethod.Post))//(action,controller)
+{
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Nhập hàng</h3>
+            <div class="success">@ViewData["success"]</div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Tên sản phẩm</label>
+                        @Html.TextBoxFor(model => model.productName, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Mã sản phẩm</label>
+                        @Html.TextBoxFor(model => model.product_Code, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <!-- /.form-group -->
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Số lượng tồn</label>
+                        @Html.TextBoxFor(model => model.product_Remain, new { @class = "form-control", placeholder = "Nhập số lượng sản phẩm...", @readonly = "readonly" })
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Số lượng nhập thêm</label>
+                        <input name="product_more_quantity" type="text" placeholder="Nhập thêm số lượng" class="form-control" />
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+
+                <!-- /.col -->
+            </div>
+            <div class="box-footer">
+                <input type="submit" class="btn btn-primary" value="Nhập hàng" />
+            </div>
+            <div>
+                @Html.ActionLink("<<<Quay lại", "Productlist")
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+
+    </div>
+}

@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "AddNews";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@using WebLinhPhuKienMayTinh.Areas.Admin.Models;
+@model NewsModel
+
+@section header
+{
+    THÊM TIN TỨC
+}
+@section jsFooter{
+    <script>
+        $('#selectImg').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        var editor = CKEDITOR.replace('content', {
+            customConfig: '/Assets/Admin/files/assets/js/plugins/ckeditor/config.js',
+        });
+    </script>
+}
+
+@using (Html.BeginForm("AddNews", "News", FormMethod.Post))//(action,controller)
+{
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới </h3>
+            @Html.ValidationSummary(false, "", new { @class = "error" })
+            <div class="success">@ViewData["success"]</div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Nhập tiêu đề</label>
+                        @Html.TextBoxFor(model => model.newsTitle, new { @class = "form-control", placeholder = "Nhập tiêu đề..." })
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="name">Loại tin tức</label>
+                        <select class="form-control" name="newsType">
+                            <option>Chọn</option>
+                            <option value="0">Tin thường</option>
+                            <option value="1">Tin mới</option>
+                            <option value="2">Tin hot</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Hình ảnh</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-danger" id="selectImg">Chọn ảnh</button>
+                            </div>
+                            <!-- /btn-group -->
+                            @Html.TextBoxFor(model => model.newsImg, new { @class = "form-control", placeholder = "Hãy chọn hình ảnh", @id = "txtImage" })
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="name">Nội dung</label>
+                        @Html.TextAreaFor(model => model.newsContent, new { @class = "tinymce", @id = "content" })
+                    </div>
+
+
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <div class="box-footer">
+                <input type="submit" class="btn btn-primary" value="Thêm" />
+            </div>
+            <div>
+                @Html.ActionLink("<<<Back to list", "Newslist")
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+}

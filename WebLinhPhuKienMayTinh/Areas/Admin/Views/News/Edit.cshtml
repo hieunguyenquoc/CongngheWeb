@@ -1,0 +1,112 @@
+﻿@model WebLinhPhuKienMayTinh.Models.EF.NEWS
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    SỬA TIN TỨC
+}
+@section jsFooter{
+    <script>
+        $('#selectImg').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        var editor = CKEDITOR.replace('content', {
+            customConfig: '/Assets/Admin/js/plugins/ckeditor/config.js',
+        });
+
+
+    </script>
+}
+@using (Html.BeginForm("Edit", "News", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Sửa</h3>
+            @Html.ValidationSummary(false, "", new { @class = "error" })
+            <div class="success">@ViewData["success"]</div>
+        </div>
+        <!-- /.box-header -->
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.newsID)
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Tiêu đề</label>
+                        @Html.EditorFor(model => model.newsTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="name">Loại tin tức</label>
+                        <select class="form-control" name="newsType">
+                            @{
+                                if (ViewBag.type == "0")
+                                {
+                                    <option selected value="0">Tin thường</option>
+                                    <option value="1">Tin mới</option>
+                                    <option value="2">Tin hot</option>
+                                }
+                                else if (ViewBag.type == "1")
+                                {
+                                    <option selected value="1">Tin mới</option>
+                                    <option value="0">Tin thường</option>
+                                    <option value="2">Tin hot</option>
+                                }
+                                else
+                                {
+                                    <option selected value="2">Tin hot</option>
+                                    <option value="0">Tin thường</option>
+                                    <option value="1">Tin mới</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Hình ảnh</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-danger" id="selectImg">Chọn ảnh</button>
+                            </div>
+                            <!-- /btn-group -->
+                            @Html.EditorFor(model => model.newsImg, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" } })
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="name">Nội dung</label>
+                        @Html.TextAreaFor(model => model.newsContent, new { @class = "tinymce", @id = "content" })
+                    </div>
+
+
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <div class="box-footer">
+                <input type="submit" class="btn btn-primary" value="Sửa" />
+            </div>
+            <div>
+                @Html.ActionLink("<<<Quay lại", "Newslist")
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+}

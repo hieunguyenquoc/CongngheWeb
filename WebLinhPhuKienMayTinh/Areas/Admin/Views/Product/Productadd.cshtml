@@ -1,0 +1,138 @@
+﻿@using WebLinhPhuKienMayTinh.Areas.Admin.Models;
+@model ProductModel
+@{
+    ViewBag.Title = "Productadd";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    THÊM SẢN PHẨM
+}
+@section jsFooter{
+    <script>
+        $('#selectImg').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        var editor = CKEDITOR.replace('content', {
+            customConfig: '/Assets/Admin/plugins/ckeditor/config.js',
+        });
+    </script>
+}
+@using (Html.BeginForm("Productadd", "Product", FormMethod.Post))//(action,controller)
+{
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới </h3>
+            @Html.ValidationSummary(false, "", new { @class = "error" })
+            <div class="success">@ViewData["success"]</div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Tên sản phẩm</label>
+                        @Html.TextBoxFor(model => model.productName, new { @class = "form-control", placeholder = "Nhập tên sản phẩm..." })
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="name">Mã sản phẩm</label>
+                        @Html.TextBoxFor(model => model.product_Code, new { @class = "form-control", placeholder = "Nhập code sản phẩm..." })
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Số lượng</label>
+                        @Html.TextBoxFor(model => model.productQuantity, new { @class = "form-control", placeholder = "Nhập số lượng sản phẩm..." })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Giá</label>
+                        @Html.TextBoxFor(model => model.price, new { @class = "form-control", placeholder = "Nhập giá..." })
+                    </div>
+                    <!-- /.form-group -->
+
+                </div>
+                <!-- /.col -->
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label>Thương hiệu sản phẩm</label>
+                        <select class="form-control" name="brandId">
+                            <option>Chọn thương hiệu</option>
+                            @foreach (var item in ViewBag.ListBrand)
+                            {
+                                <option value="@item.brandId">@item.brandName</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+
+                        <label>Danh mục sản phẩm</label>
+
+                        <select class="form-control" name="catId">
+
+                            <option>Chọn chuyên mục</option>
+                            @foreach (var item in ViewBag.ListCategory)
+                            {
+                                <option value="@item.catId">@item.catName</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Loại sản phẩm</label>
+                        <select class="form-control" name="types">
+                            <option>Chọn</option>
+                            <option value="1">Nổi bật</option>
+                            <option value="0">Không nổi bật</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Chọn ảnh</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-danger" id="selectImg">Chọn ảnh</button>
+                            </div>
+                            <!-- /btn-group -->
+                            @Html.TextBoxFor(model => model.images, new { @class = "form-control", placeholder = "Hãy chọn hình ảnh", @id = "txtImage" })
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Mô tả</label>
+                        @Html.TextAreaFor(model => model.product_Desc, new { @class = "tinymce", @id = "content" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-footer">
+                <input type="submit" class="btn btn-primary" value="Thêm" />
+            </div>
+            <div>
+                @Html.ActionLink("<<<Back to list", "Productlist")
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+}

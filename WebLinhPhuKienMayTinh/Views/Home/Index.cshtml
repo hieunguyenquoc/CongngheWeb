@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var NewProduct = (List<WebLinhPhuKienMayTinh.Models.EF.PRODUCT>)ViewBag.NewProduct;
+    var FeatureProduct = (List<WebLinhPhuKienMayTinh.Models.EF.PRODUCT>)ViewBag.FeatureProduct;
+}
+@section slide
+{
+    <div class="header_bottom">
+        <div class="header_bottom_left">
+            @{Html.RenderAction("ProductCategory", "Product"); }
+        </div>
+            <div class="header_bottom_right_images">
+                <!-- FlexSlider -->
+
+                <section class="slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li><img src="~/Assets/Client/images/slide/slide1.png" alt="" /></li>
+                            <li><img src="~/Assets/Client/images/slide/slide2.png" alt="" /></li>
+                            <li><img src="~/Assets/Client/images/slide/slide3.png" alt="" /></li>
+                            <li><img src="~/Assets/Client/images/slide/slide4.jpg" alt="" /></li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- FlexSlider -->
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    }
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Sản phẩm nổi bật</h3>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @foreach (var item in FeatureProduct)
+            {
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="/chi-tiet/@item.productName-@item.productId"><img src="@item.images" alt="" /></a>
+                <h2>@item.productName </h2>
+                <p>@item.product_Desc</p>
+                <p><span class="price">@item.price VNĐ</span></p>
+                <div class="button"><span><a href="/chi-tiet/@item.productName-@item.productId" class="details">Chi tiết</a></span></div>
+            </div>
+                    }
+
+                
+
+            </div>
+        <div class="content_bottom">
+            <div class="heading">
+                <h3>Sản phẩm mới</h3>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @foreach (var item in NewProduct)
+            {
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="/chi-tiet/@item.productName-@item.productId"><img src="@item.images" alt="" /></a>
+                <h2> @item.productName</h2>
+                <p>@item.product_Desc</p>
+                <p><span class="price">@item.price VNĐ</span></p>
+                <div class="button"><span><a href="/chi-tiet/@item.productName-@item.productId" class="details">Chi tiết</a></span></div>
+            </div>
+            }
+
+
+        </div>
+    </div>
+</div>
